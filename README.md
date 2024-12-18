@@ -77,5 +77,5 @@
 
 <!-- Easter Egg -->
 <div style="visibility: hidden; height: 0; overflow: hidden;">
-  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Congratulations! You found me!</a>
+  <a href="https://bit.ly/3BlS71b" target="_blank">Congratulations! You found me!</a>
 </div>
