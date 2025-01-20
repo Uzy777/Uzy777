@@ -80,8 +80,8 @@
 
 <h3 align="left">📊 GitHub Stats:</h3>
 <div align="center">
-<a href="https://github.com/anuraghazra/github-readme-stats"><img alt="Uzy777's Github Stats" src="https://denvercoder1-github-readme-stats.vercel.app/api/?username=Uzy777&show_icons=true&include_all_commits=true&count_private=true&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=539BF5&icon_color=539BF5" height="192px"/></a>
-<a href="https://github.com/anuraghazra/github-readme-stats"><img alt="Uzy777's Top Languages" src="https://denvercoder1-github-readme-stats.vercel.app/api/top-langs/?username=Uzy777&langs_count=8&layout=compact&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=539BF5&icon_color=539BF5&hide=Jupyter%20Notebook,Roff" height="192px"/></a>
+<a href="https://github.com/anuraghazra/github-readme-stats"><img alt="Uzy777's Github Stats" src="https://github-readme-stats.vercel.app/api/?username=Uzy777&show_icons=true&include_all_commits=true&count_private=true&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=539BF5&icon_color=539BF5" height="192px"/></a>
+<a href="https://github.com/anuraghazra/github-readme-stats"><img alt="Uzy777's Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Uzy777&langs_count=8&layout=compact&theme=github_dark&hide_border=true&bg_color=0D1117&title_color=539BF5&icon_color=539BF5&hide=Jupyter%20Notebook,Roff" height="192px"/></a>
 <br/>
 <a href="https://github.com/ashutosh00710/github-readme-activity-graph"><img alt="Uzy777's Activity Graph" src="https://github-readme-activity-graph.vercel.app/graph/?username=Uzy777&bg_color=0D1117&color=539BF5&line=539BF5&point=FFFFFF&hide_border=true" /></a>
 </div>
