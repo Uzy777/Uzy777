@@ -22,14 +22,31 @@
 
 ---
 
-<h3 align="left">🛠️ Languages and Tools:</h3>
+<h3 align="left">🖥️ Distro:</h3>
 <p align="left">
-  <a href="https://www.linux.org/" target="_blank">
-    <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux" />
+  <a href="https://www.linux.org/](https://archlinux.org/" target="_blank">
+    <img src="https://img.shields.io/badge/Arch-1793D1?style=for-the-badge&logo=archlinux&logoColor=white" alt="Arch Linux" />
   </a>
+  <a href="https://www.debian.org/" target="_blank">
+    <img src="https://img.shields.io/badge/Debian-D70A53?style=for-the-badge&logo=debian&logoColor=white" alt="Debian" />
+  </a>
+
+<h3 align="left">🤖 Languages:</h3>
   <a href="https://www.python.org/" target="_blank">
     <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
   </a>
+    <a href="https://www.w3.org/html/" target="_blank">
+    <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+  </a>
+  <a href="https://www.w3schools.com/css/" target="_blank">
+    <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+  </a>
+  <a href="https://www.mysql.com/" target="_blank">
+  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+  </a>
+
+
+<h3 align="left">🛠️ Tools:</h3>
   <a href="https://www.gnu.org/software/bash/" target="_blank">
     <img src="https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="Bash" />
   </a>
@@ -38,12 +55,6 @@
   </a>
   <a href="https://www.postgresql.org/" target="_blank">
     <img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-  </a>
-  <a href="https://www.w3.org/html/" target="_blank">
-    <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
-  </a>
-  <a href="https://www.w3schools.com/css/" target="_blank">
-    <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
   </a>
   <a href="https://www.docker.com/" target="_blank">
     <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
@@ -56,6 +67,7 @@
   </a>
 </p>
 
+  
 ---
 
 <h3 align="left">📊 GitHub Stats:</h3>
