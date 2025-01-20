@@ -14,6 +14,14 @@
   </a>
 </p>
 
+
+<div align="center">
+  <a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.herokuapp.com?font=+Space+Mono+&pause=1000&color=539BF5&center=true&repeat=false&width=435&lines=Hello+want+a+cookie................%3F;here+%F0%9F%8D%AA" alt="Typing SVG">
+  </a>
+</div>
+
+
 ---
 
 - 🔭 I’m currently working on **several personal projects**
