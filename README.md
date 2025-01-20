@@ -5,6 +5,7 @@
   <img src="https://avatars.githubusercontent.com/uzy777" alt="Uzy's Profile Picture" width="150" style="border-radius: 50%; margin-bottom: 10px;" />
 </p>
 
+<!--
 <p align="center">
   <a href="https://github.com/uzy777?tab=repositories">
     <img src="https://img.shields.io/github/followers/uzy777?style=social" alt="Followers" />
@@ -13,6 +14,8 @@
     <img src="https://komarev.com/ghpvc/?username=uzy777&color=blue" alt="Profile Views" />
   </a>
 </p>
+--->
+
 
 
 <div align="center">
