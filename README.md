@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Uzy</h1>
-<h3 align="center">Aspiring to learn Python and Backend Architecture!</h3>
+<h3 align="center">Aspiring to learn Python and Fullstack Development!</h3>
 
 <p align="center">
   <img src="https://avatars.githubusercontent.com/uzy777" alt="Uzy's Profile Picture" width="150" style="border-radius: 50%; margin-bottom: 10px;" />
@@ -27,8 +27,8 @@
 
 ---
 
-- 🔭 I’m currently working on **several personal projects**
-- 🌱 I’m currently learning **Python**
+- 🔭 I’m currently working on **projects**
+- 🌱 I’m currently learning **Python, Frontend, Full-stack**
 - ⚡ Fun fact: **I like cars 🏎️**
 
 ---
