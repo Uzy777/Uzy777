@@ -33,7 +33,7 @@
 
 ---
 
-<h3 align="left">🖥️ Distro:</h3>
+<h3 align="left">🖥️ Distros:</h3>
 <p align="left">
   <a href="https://www.linux.org/](https://archlinux.org/" target="_blank">
     <img src="https://img.shields.io/badge/Arch-1793D1?style=for-the-badge&logo=archlinux&logoColor=white" alt="Arch Linux" />
