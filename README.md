@@ -31,6 +31,7 @@
 - 🌱 I’m currently learning **Python, Frontend, Full-stack**
 - ⚡ Fun fact: **I like cars 🏎️**
 
+<!-- https://simpleicons.org/ -->
 ---
 <h3 align="left">🖥️ Distros:</h3>
 <p align="left">
