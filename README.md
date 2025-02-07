@@ -35,7 +35,7 @@
 ---
 <h3 align="left">🖥️ Distros:</h3>
 <p align="left">
-  <img src="https://img.shields.io/badge/-Arch_Linux-1793D1?style=for-the-badge&logo=archlinux&logoColor=white" alt="Arch Linux" />
+  <img src="https://img.shields.io/badge/-Arch-1793D1?style=for-the-badge&logo=archlinux&logoColor=white" alt="Arch" />
   <img src="https://img.shields.io/badge/-Debian-D70A53?style=for-the-badge&logo=debian&logoColor=white" alt="Debian" />
 </p>
 
