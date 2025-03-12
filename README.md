@@ -64,6 +64,7 @@
   <img src="https://img.shields.io/badge/-ReactJs-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
   <img src="https://img.shields.io/badge/-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
   <img src="https://img.shields.io/badge/-Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask" />
+  <img src="https://img.shields.io/badge/-Pega-1F2555?style=for-the-badge&logo=gunicorn&logoColor=white" alt="Pega" />
 </p>
 
 <h3 align="left">🚀 Productivity:</h3>
