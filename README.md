@@ -64,6 +64,9 @@
   <img src="https://img.shields.io/badge/-ReactJs-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
   <img src="https://img.shields.io/badge/-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
   <img src="https://img.shields.io/badge/-Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask" />
+  <img src="https://img.shields.io/badge/-Wordpress-21759B?style=for-the-badge&logo=wordpress&logoColor=white" alt="Wordpress" />
+  <img src="https://img.shields.io/badge/-Joomla-5091CD?style=for-the-badge&logo=joomla&logoColor=white" alt="Joomla" />
+  <img src="https://img.shields.io/badge/-Drupal-0678BE?style=for-the-badge&logo=drupal&logoColor=white" alt="Drupal" />
   <img src="https://img.shields.io/badge/-Pega-1F2555?style=for-the-badge&logo=gunicorn&logoColor=white" alt="Pega" />
 </p>
 
