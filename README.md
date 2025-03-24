@@ -75,6 +75,7 @@
   <img src="https://img.shields.io/badge/-VSCodium-2F80ED?style=for-the-badge&logo=vscodium&logoColor=white" alt="VSCodium" />
   <img src="https://img.shields.io/badge/-Obsidian-7C3AED?style=for-the-badge&logo=obsidian&logoColor=white" alt="Obsidian" />
   <img src="https://img.shields.io/badge/-Jira-0052CC?style=for-the-badge&logo=jira&logoColor=white" alt="Jira" />
+  <img src="https://img.shields.io/badge/-Hyprland-58E1FF?style=for-the-badge&logo=hyprland&logoColor=black" alt="Hyprland" />
 </p>
 
 
