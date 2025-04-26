@@ -103,6 +103,6 @@
 
 <!-- Easter Egg -->
 <div style="visibility: hidden; height: 0; overflow: hidden;">
-  <a href="https://bit.ly/3BlS71b" target="_blank" rel="noopener noreferrer">Congratulations! You found me!</a>
+  <a href="https://shorturl.at/TRTX5" target="_blank" rel="noopener noreferrer">Congratulations! You found me!</a>
 </div>
 
