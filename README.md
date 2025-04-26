@@ -29,7 +29,7 @@
 
 - 🔭 I’m currently working on **projects**
 - 🌱 I’m currently learning **frontend & python**
-- ⚡ Fun fact: **I like cars 🏎️**
+- ⚡ Fun fact: **I like cars 🚗**
 
 <!-- https://simpleicons.org/ -->
 ---
