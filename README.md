@@ -102,6 +102,6 @@
 
 <!-- Easter Egg -->
 <div style="visibility: hidden; height: 0; overflow: hidden;">
-  <a href="https://shorturl.at/TRTX5" target="_blank" rel="noopener noreferrer">Congratulations! You found me!</a>
+  <a href="https://uzy777.github.io/rr.mp4" target="_blank" rel="noopener noreferrer">Congratulations! You found me!</a>
 </div>
 
