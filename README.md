@@ -28,7 +28,7 @@
 ---
 
 - 🔭 I’m currently working on **projects**
-- 🌱 I’m currently learning **frontend & python**
+- 🌱 I’m currently learning **frontend react development**
 - ⚡ Fun fact: **I like cars 🚗**
 
 <!-- https://simpleicons.org/ -->
