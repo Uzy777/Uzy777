@@ -2,6 +2,6 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "devicon": "2.17.0"
+    "devicon": "^2.17.0"
   }
 }
