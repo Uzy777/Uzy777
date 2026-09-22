@@ -1,0 +1,41 @@
+name: Generate GitHub Stats
+
+on:
+  schedule:
+    # Once per day
+    - cron: "17 3 * * *"
+
+  # Allows you to run it manually
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout profile repository
+        uses: actions/checkout@v4
+
+      - name: Generate profile summary cards
+        uses: vn7n24fzkq/github-profile-summary-cards@release
+        env:
+          GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
+
+        with:
+          USERNAME: Uzy777
+          BRANCH_NAME: main
+          UTC_OFFSET: 0
+          EXCLUDE: ""
+          AUTO_PUSH: true
+
+          # Blank = generate all available themes.
+          # We only display github + github_dark in the README.
+          THEME: ""
+
+          # Keep these clean for now.
+          ANIMATION: ""
+          DURATION: ""
+          NAME: "Uzy"
