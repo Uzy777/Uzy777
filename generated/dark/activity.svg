@@ -1,0 +1,121 @@
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="800"
+  height="260"
+  viewBox="0 0 800 260"
+  role="img"
+>
+  <rect
+    x="1"
+    y="1"
+    width="798"
+    height="258"
+    rx="16"
+    fill="#0D1117"
+    stroke="#30363D"
+  />
+
+  <text
+    x="32"
+    y="40"
+    fill="#F0F6FC"
+    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    font-size="18"
+    font-weight="600"
+    text-anchor="start"
+    opacity="1"
+  >Contribution activity</text>
+  <text
+    x="32"
+    y="65"
+    fill="#8B949E"
+    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    font-size="13"
+    font-weight="400"
+    text-anchor="start"
+    opacity="1"
+  >Last 12 months</text>
+  <text
+    x="768"
+    y="42"
+    fill="#539BF5"
+    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    font-size="15"
+    font-weight="600"
+    text-anchor="end"
+    opacity="1"
+  >2.7k contributions</text>
+  <line
+    x1="32"
+    y1="215"
+    x2="768"
+    y2="215"
+    stroke="#30363D"
+  />
+
+  <polygon
+    points="32,215 32.0,207.1 46.2,209.5 60.3,202.3 74.5,211.9 88.6,206.8 102.8,208.8 116.9,210.2 131.1,211.2 145.2,207.1 159.4,204.4 173.5,214.3 187.7,181.4 201.8,150.6 216.0,207.1 230.2,201.3 244.3,179.7 258.5,189.0 272.6,201.3 286.8,198.6 300.9,187.2 315.1,208.1 329.2,207.1 343.4,212.3 357.5,210.5 371.7,214.0 385.8,213.6 400.0,199.2 414.2,208.5 428.3,204.0 442.5,198.2 456.6,209.9 470.8,207.8 484.9,210.5 499.1,202.7 513.2,211.2 527.4,209.5 541.5,201.0 555.7,207.5 569.8,208.1 584.0,208.8 598.2,212.3 612.3,212.9 626.5,186.2 640.6,189.6 654.8,201.0 668.9,193.8 683.1,135.2 697.2,105.0 711.4,166.7 725.5,141.3 739.7,177.6 753.8,186.2 768.0,204.7 768,215"
+    fill="#539BF5"
+    opacity="0.12"
+  />
+
+  <polyline
+    points="32.0,207.1 46.2,209.5 60.3,202.3 74.5,211.9 88.6,206.8 102.8,208.8 116.9,210.2 131.1,211.2 145.2,207.1 159.4,204.4 173.5,214.3 187.7,181.4 201.8,150.6 216.0,207.1 230.2,201.3 244.3,179.7 258.5,189.0 272.6,201.3 286.8,198.6 300.9,187.2 315.1,208.1 329.2,207.1 343.4,212.3 357.5,210.5 371.7,214.0 385.8,213.6 400.0,199.2 414.2,208.5 428.3,204.0 442.5,198.2 456.6,209.9 470.8,207.8 484.9,210.5 499.1,202.7 513.2,211.2 527.4,209.5 541.5,201.0 555.7,207.5 569.8,208.1 584.0,208.8 598.2,212.3 612.3,212.9 626.5,186.2 640.6,189.6 654.8,201.0 668.9,193.8 683.1,135.2 697.2,105.0 711.4,166.7 725.5,141.3 739.7,177.6 753.8,186.2 768.0,204.7"
+    fill="none"
+    stroke="#539BF5"
+    stroke-width="3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <text
+    x="32"
+    y="239"
+    fill="#8B949E"
+    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    font-size="11"
+    font-weight="400"
+    text-anchor="start"
+    opacity="1"
+  >Sept</text>
+  <text
+    x="216"
+    y="239"
+    fill="#8B949E"
+    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    font-size="11"
+    font-weight="400"
+    text-anchor="middle"
+    opacity="1"
+  >Dec</text>
+  <text
+    x="400"
+    y="239"
+    fill="#8B949E"
+    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    font-size="11"
+    font-weight="400"
+    text-anchor="middle"
+    opacity="1"
+  >Mar</text>
+  <text
+    x="584"
+    y="239"
+    fill="#8B949E"
+    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    font-size="11"
+    font-weight="400"
+    text-anchor="middle"
+    opacity="1"
+  >Jun</text>
+  <text
+    x="768"
+    y="239"
+    fill="#8B949E"
+    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    font-size="11"
+    font-weight="400"
+    text-anchor="end"
+    opacity="1"
+  >Sept</text></svg>
