@@ -2,6 +2,7 @@ name: Generate GitHub Stats
 
 on:
   workflow_dispatch:
+
   schedule:
     - cron: "17 3 * * *"
 
@@ -21,9 +22,27 @@ jobs:
         with:
           node-version: 20
 
+      - name: Check required secrets
+        env:
+          PROFILE_STATS_TOKEN: ${{ secrets.PROFILE_STATS_TOKEN }}
+          SUMMARY_GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
+        run: |
+          if [ -z "$PROFILE_STATS_TOKEN" ]; then
+            echo "PROFILE_STATS_TOKEN is missing"
+            exit 1
+          fi
+
+          if [ -z "$SUMMARY_GITHUB_TOKEN" ]; then
+            echo "SUMMARY_GITHUB_TOKEN is missing"
+            exit 1
+          fi
+
+          echo "Required secrets are available."
+
       - name: Generate SVGs
         env:
           PROFILE_STATS_TOKEN: ${{ secrets.PROFILE_STATS_TOKEN }}
+          SUMMARY_GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
         run: node scripts/generate-github-stats.mjs
 
       - name: Commit updated SVGs
