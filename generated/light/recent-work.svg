@@ -38,11 +38,23 @@
     text-anchor="start"
     opacity="1"
   >Recently updated repositories · private names hidden</text>
-          <circle
-            cx="34"
-            cy="92"
-            r="4"
-            fill="#0969DA"
+          <rect
+            x="29"
+            y="88"
+            width="10"
+            height="8"
+            rx="2"
+            fill="none"
+            stroke="#656D76"
+            stroke-width="1.4"
+          />
+
+          <path
+            d="M31 88 V85 A3 3 0 0 1 37 85 V88"
+            fill="none"
+            stroke="#656D76"
+            stroke-width="1.4"
+            stroke-linecap="round"
           />
         
   <text
@@ -54,7 +66,7 @@
     font-weight="600"
     text-anchor="start"
     opacity="1"
-  >freeCodeCamp-Projects</text>
+  >Private repository</text>
   <text
     x="362"
     y="98"
@@ -64,7 +76,7 @@
     font-weight="400"
     text-anchor="end"
     opacity="1"
-  >1w ago</text>
+  >today</text>
           <line
             x1="28"
             y1="113"
@@ -74,11 +86,23 @@
             stroke-width="1"
           />
         
-          <circle
-            cx="34"
-            cy="125"
-            r="4"
-            fill="#0969DA"
+          <rect
+            x="29"
+            y="121"
+            width="10"
+            height="8"
+            rx="2"
+            fill="none"
+            stroke="#656D76"
+            stroke-width="1.4"
+          />
+
+          <path
+            d="M31 121 V118 A3 3 0 0 1 37 118 V121"
+            fill="none"
+            stroke="#656D76"
+            stroke-width="1.4"
+            stroke-linecap="round"
           />
         
   <text
@@ -90,7 +114,7 @@
     font-weight="600"
     text-anchor="start"
     opacity="1"
-  >Mini-Projects</text>
+  >Private repository</text>
   <text
     x="362"
     y="131"
@@ -100,7 +124,7 @@
     font-weight="400"
     text-anchor="end"
     opacity="1"
-  >3w ago</text>
+  >today</text>
           <line
             x1="28"
             y1="146"
@@ -110,11 +134,23 @@
             stroke-width="1"
           />
         
-          <circle
-            cx="34"
-            cy="158"
-            r="4"
-            fill="#0969DA"
+          <rect
+            x="29"
+            y="154"
+            width="10"
+            height="8"
+            rx="2"
+            fill="none"
+            stroke="#656D76"
+            stroke-width="1.4"
+          />
+
+          <path
+            d="M31 154 V151 A3 3 0 0 1 37 151 V154"
+            fill="none"
+            stroke="#656D76"
+            stroke-width="1.4"
+            stroke-linecap="round"
           />
         
   <text
@@ -126,7 +162,7 @@
     font-weight="600"
     text-anchor="start"
     opacity="1"
-  >FullStackOpen</text>
+  >Private repository</text>
   <text
     x="362"
     y="164"
@@ -136,7 +172,7 @@
     font-weight="400"
     text-anchor="end"
     opacity="1"
-  >5mo ago</text>
+  >today</text>
           <line
             x1="28"
             y1="179"
@@ -146,11 +182,23 @@
             stroke-width="1"
           />
         
-          <circle
-            cx="34"
-            cy="191"
-            r="4"
-            fill="#0969DA"
+          <rect
+            x="29"
+            y="187"
+            width="10"
+            height="8"
+            rx="2"
+            fill="none"
+            stroke="#656D76"
+            stroke-width="1.4"
+          />
+
+          <path
+            d="M31 187 V184 A3 3 0 0 1 37 184 V187"
+            fill="none"
+            stroke="#656D76"
+            stroke-width="1.4"
+            stroke-linecap="round"
           />
         
   <text
@@ -162,7 +210,7 @@
     font-weight="600"
     text-anchor="start"
     opacity="1"
-  >The-Farmer-Was-Replaced</text>
+  >Private repository</text>
   <text
     x="362"
     y="197"
@@ -172,7 +220,7 @@
     font-weight="400"
     text-anchor="end"
     opacity="1"
-  >8mo ago</text>
+  >4d ago</text>
   <text
     x="28"
     y="220"
