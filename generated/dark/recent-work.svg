@@ -6,7 +6,7 @@
   viewBox="0 0 390 240"
   role="img"
 >
-  <title>GitHub statistics</title>
+  <title>Recent work</title>
 
   <rect
     x="1"
@@ -27,7 +27,7 @@
     font-weight="600"
     text-anchor="start"
     opacity="1"
-  >GitHub stats</text>
+  >Recent work</text>
   <text
     x="28"
     y="61"
@@ -37,84 +37,149 @@
     font-weight="400"
     text-anchor="start"
     opacity="1"
-  >Public + private contributions · last 12 months</text>
+  >Most recently updated public repositories</text>
+      <circle
+        cx="34"
+        cy="92"
+        r="4"
+        fill="#539BF5"
+      />
+    
   <text
-    x="28"
-    y="111"
-    fill="#539BF5"
+    x="46"
+    y="95"
+    fill="#F0F6FC"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
-    font-size="25"
+    font-size="13"
     font-weight="600"
     text-anchor="start"
     opacity="1"
-  >2.8k</text>
+  >freeCodeCamp-Projects</text>
   <text
-    x="28"
-    y="134"
+    x="362"
+    y="95"
     fill="#8B949E"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
-    font-size="12"
+    font-size="11"
     font-weight="400"
-    text-anchor="start"
+    text-anchor="end"
     opacity="1"
-  >Contributions</text>
+  >1w ago</text>
+        <line
+          x1="28"
+          y1="111"
+          x2="362"
+          y2="111"
+          stroke="#21262D"
+          stroke-width="1"
+        />
+      
+      <circle
+        cx="34"
+        cy="126"
+        r="4"
+        fill="#539BF5"
+      />
+    
   <text
-    x="210"
-    y="111"
-    fill="#539BF5"
+    x="46"
+    y="129"
+    fill="#F0F6FC"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
-    font-size="25"
+    font-size="13"
     font-weight="600"
     text-anchor="start"
     opacity="1"
-  >2.6k</text>
+  >Mini-Projects</text>
   <text
-    x="210"
-    y="134"
+    x="362"
+    y="129"
     fill="#8B949E"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
-    font-size="12"
+    font-size="11"
     font-weight="400"
-    text-anchor="start"
+    text-anchor="end"
     opacity="1"
-  >Commits</text>
+  >3w ago</text>
+        <line
+          x1="28"
+          y1="145"
+          x2="362"
+          y2="145"
+          stroke="#21262D"
+          stroke-width="1"
+        />
+      
+      <circle
+        cx="34"
+        cy="160"
+        r="4"
+        fill="#539BF5"
+      />
+    
   <text
-    x="28"
-    y="183"
-    fill="#539BF5"
+    x="46"
+    y="163"
+    fill="#F0F6FC"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
-    font-size="25"
+    font-size="13"
     font-weight="600"
     text-anchor="start"
     opacity="1"
-  >237</text>
+  >FullStackOpen</text>
   <text
-    x="28"
-    y="206"
+    x="362"
+    y="163"
     fill="#8B949E"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
-    font-size="12"
+    font-size="11"
     font-weight="400"
-    text-anchor="start"
+    text-anchor="end"
     opacity="1"
-  >Active days</text>
+  >5mo ago</text>
+        <line
+          x1="28"
+          y1="179"
+          x2="362"
+          y2="179"
+          stroke="#21262D"
+          stroke-width="1"
+        />
+      
+      <circle
+        cx="34"
+        cy="194"
+        r="4"
+        fill="#539BF5"
+      />
+    
   <text
-    x="210"
-    y="183"
-    fill="#539BF5"
+    x="46"
+    y="197"
+    fill="#F0F6FC"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
-    font-size="25"
+    font-size="13"
     font-weight="600"
     text-anchor="start"
     opacity="1"
-  >33d</text>
+  >The-Farmer-Was-Replaced</text>
   <text
-    x="210"
-    y="206"
+    x="362"
+    y="197"
     fill="#8B949E"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
-    font-size="12"
+    font-size="11"
+    font-weight="400"
+    text-anchor="end"
+    opacity="1"
+  >8mo ago</text>
+  <text
+    x="28"
+    y="215"
+    fill="#8B949E"
+    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    font-size="11"
     font-weight="400"
     text-anchor="start"
     opacity="1"
-  >Longest streak</text></svg>
+  >15 public repositories</text></svg>
