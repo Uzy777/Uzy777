@@ -1163,19 +1163,6 @@ function createRecentWorkSvg(
     });
   }
 
-  svg += text({
-    x: 28,
-    y: 220,
-
-    value:
-      "Private repository names are never written to this SVG",
-
-    fill:
-      theme.muted,
-
-    size: 10,
-  });
-
   svg += cardEnd();
 
   return svg;
