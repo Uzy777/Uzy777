@@ -68,7 +68,7 @@
 ### Cloud & DevOps
 
 <p>
-  <img src="https://skillicons.dev/icons?i=aws,cloudflare,docker,kubernetes,githubactions,ansible,sentry&theme=dark" alt="Cloud and DevOps technologies" />
+  <img src="https://skillicons.dev/icons?i=aws,cloudflare,docker,kubernetes,ansible&theme=dark" alt="Cloud and DevOps technologies" />
 </p>
 
 <!-- TODO: Argo CD isn't currently available on skillicons.dev -->
@@ -76,7 +76,7 @@
 ### Tools & Workflow
 
 <p>
-  <img src="https://skillicons.dev/icons?i=git,github,vscode,postman,figma,obsidian,npm&theme=dark" alt="Development tools" />
+  <img src="https://skillicons.dev/icons?i=git,vscode,postman,figma,obsidian&theme=dark" alt="Development tools" />
 </p>
 
 <!-- TODO: Jira isn't currently available on skillicons.dev -->
