@@ -124,20 +124,6 @@ A mobile prayer tracker focused on making daily Salah progress simple and meanin
 
 ## 📊 GitHub
 
-<!--
-GitHub charts will go here once generated locally with GitHub Actions.
-
-Suggested layout:
-
-┌─────────────────────────────────────────┐
-│          Contribution Activity          │
-└─────────────────────────────────────────┘
-
-┌───────────────────┐ ┌───────────────────┐
-│       Stats       │ │     Languages     │
-└───────────────────┘ └───────────────────┘
-
-
 <p align="center">
   <picture>
     <source
@@ -187,11 +173,6 @@ Suggested layout:
       src="./profile-summary-card-output/github/1-repos-per-language.svg"
     />
   </picture>
-</p>
--->
-
-<p align="center">
-  <sub>Charts coming soon™ 📈</sub>
 </p>
 
 ---
