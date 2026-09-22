@@ -121,7 +121,6 @@ A mobile prayer tracker focused on making daily Salah progress simple and meanin
 `React Native` · `Expo` · `TypeScript`
 
 ---
-
 ## 📊 GitHub
 
 <p align="center">
@@ -158,19 +157,20 @@ A mobile prayer tracker focused on making daily Salah progress simple and meanin
       src="./generated/light/stats.svg"
     />
   </picture>
+
   <picture>
     <source
       media="(prefers-color-scheme: dark)"
-      srcset="./generated/dark/languages.svg"
+      srcset="./generated/dark/recent-work.svg"
     />
     <source
       media="(prefers-color-scheme: light)"
-      srcset="./generated/light/languages.svg"
+      srcset="./generated/light/recent-work.svg"
     />
     <img
       width="49%"
-      alt="Uzy's most-used languages"
-      src="./generated/light/languages.svg"
+      alt="Uzy's recent GitHub work"
+      src="./generated/light/recent-work.svg"
     />
   </picture>
 </p>
