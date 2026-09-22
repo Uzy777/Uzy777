@@ -495,22 +495,19 @@ function createActivitySvg(theme) {
       const x =
         chart.left +
         (index /
-          Math.max(
-            recentDays.length - 1,
-            1
-          )) *
+          Math.max(recentDays.length - 1, 1)) *
           chartWidth;
 
       const y =
         chart.bottom -
-        (day.contributionCount /
-          axis.maximum) *
+        (day.contributionCount / axis.maximum) *
           chartHeight;
 
       return {
         x,
         y,
         day,
+        dayNumber: index + 1,
       };
     }
   );
@@ -564,6 +561,7 @@ function createActivitySvg(theme) {
     </defs>
   `;
 
+  // Header
   svg += text({
     x: 28,
     y: 38,
@@ -576,7 +574,7 @@ function createActivitySvg(theme) {
   svg += text({
     x: 28,
     y: 61,
-    value: "Last 30 days",
+    value: "Last 30 days · Day 30 is today",
     fill: theme.muted,
     size: 12,
   });
@@ -591,7 +589,10 @@ function createActivitySvg(theme) {
     anchor: "end",
   });
 
-  // Y axis and horizontal grid lines
+  // ---------------------------------------------------------
+  // Y axis + grid
+  // ---------------------------------------------------------
+
   for (
     let value = 0;
     value <= axis.maximum;
@@ -623,6 +624,7 @@ function createActivitySvg(theme) {
     });
   }
 
+  // Y axis
   svg += `
     <line
       x1="${chart.left}"
@@ -632,7 +634,10 @@ function createActivitySvg(theme) {
       stroke="${theme.border}"
       stroke-width="1"
     />
+  `;
 
+  // X axis
+  svg += `
     <line
       x1="${chart.left}"
       y1="${chart.bottom}"
@@ -643,45 +648,9 @@ function createActivitySvg(theme) {
     />
   `;
 
-  // One X-axis tick for every day.
-  // Label every third day, plus the first and last.
-  points.forEach(
-    ({ x, day }, index) => {
-      svg += `
-        <line
-          x1="${x}"
-          y1="${chart.bottom}"
-          x2="${x}"
-          y2="${chart.bottom + 4}"
-          stroke="${theme.border}"
-          stroke-width="1"
-        />
-      `;
-
-      const shouldLabel =
-        index === 0 ||
-        index === points.length - 1 ||
-        index % 3 === 0;
-
-      if (!shouldLabel) {
-        return;
-      }
-
-      svg += text({
-        x,
-        y: 250,
-        value: formatDate(day.date),
-        fill: theme.muted,
-        size: 9,
-        anchor:
-          index === 0
-            ? "start"
-            : index === points.length - 1
-              ? "end"
-              : "middle",
-      });
-    }
-  );
+  // ---------------------------------------------------------
+  // Area + line
+  // ---------------------------------------------------------
 
   svg += `
     <polygon
@@ -699,22 +668,52 @@ function createActivitySvg(theme) {
     />
   `;
 
-  points.forEach(({ x, y }) => {
-    svg += `
-      <circle
-        cx="${x}"
-        cy="${y}"
-        r="2"
-        fill="${theme.accent}"
-      />
-    `;
-  });
+  // ---------------------------------------------------------
+  // Individual days
+  // ---------------------------------------------------------
 
+  points.forEach(
+    ({ x, y, dayNumber }) => {
+      // Point
+      svg += `
+        <circle
+          cx="${x}"
+          cy="${y}"
+          r="2"
+          fill="${theme.accent}"
+        />
+      `;
+
+      // Tick
+      svg += `
+        <line
+          x1="${x}"
+          y1="${chart.bottom}"
+          x2="${x}"
+          y2="${chart.bottom + 4}"
+          stroke="${theme.border}"
+          stroke-width="1"
+        />
+      `;
+
+      // 1 → 30 labels
+      svg += text({
+        x,
+        y: 249,
+        value: dayNumber,
+        fill: theme.muted,
+        size: 8,
+        anchor: "middle",
+      });
+    }
+  );
+
+  // Y-axis title
   svg += `
     <text
-      x="25"
+      x="24"
       y="161"
-      transform="rotate(-90 25 161)"
+      transform="rotate(-90 24 161)"
       fill="${theme.muted}"
       font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
       font-size="10"
@@ -724,6 +723,7 @@ function createActivitySvg(theme) {
     </text>
   `;
 
+  // X-axis title
   svg += text({
     x: chart.left + chartWidth / 2,
     y: 280,
@@ -840,16 +840,21 @@ function createStatsSvg(theme) {
 
 function createLanguagesSvg(theme) {
   const width = 390;
-  const height = 270;
+  const height = 280;
 
   const left = 28;
   const right = 362;
 
-  const rowStart = 92;
-  const rowSpacing = 36;
-
   const fullBarWidth =
     right - left;
+
+  const rowStart = 91;
+  const rowSpacing = 38;
+
+  // The largest language becomes the visual 100% width.
+  // Other bars are ranked proportionally against it.
+  const largestLanguageBytes =
+    languages[0]?.[1] ?? 1;
 
   let svg = cardStart(
     width,
@@ -870,8 +875,7 @@ function createLanguagesSvg(theme) {
   svg += text({
     x: left,
     y: 61,
-    value:
-      "Public repositories · language share",
+    value: "Public repositories · by code size",
     fill: theme.muted,
     size: 12,
   });
@@ -881,9 +885,13 @@ function createLanguagesSvg(theme) {
       const percentage =
         totalLanguageBytes === 0
           ? 0
-          : (bytes /
-              totalLanguageBytes) *
-            100;
+          : (bytes / totalLanguageBytes) * 100;
+
+      // Bar ranking relative to largest language.
+      const relative =
+        largestLanguageBytes === 0
+          ? 0
+          : bytes / largestLanguageBytes;
 
       const rowY =
         rowStart +
@@ -895,16 +903,23 @@ function createLanguagesSvg(theme) {
         rowY + 11;
 
       const fillWidth =
-        fullBarWidth *
-        (percentage / 100);
+        fullBarWidth * relative;
+
+      // -----------------------------------------------------
+      // Icon
+      // -----------------------------------------------------
 
       svg += renderLanguageIcon(
         language,
         left,
-        rowY - 13,
+        rowY - 14,
         iconSize,
         theme
       );
+
+      // -----------------------------------------------------
+      // Language
+      // -----------------------------------------------------
 
       svg += text({
         x: left + 28,
@@ -912,39 +927,52 @@ function createLanguagesSvg(theme) {
         value: language,
         fill: theme.text,
         size: 11,
-        weight: 500,
+        weight: 600,
       });
+
+      // -----------------------------------------------------
+      // Actual percentage
+      // -----------------------------------------------------
 
       svg += text({
         x: right,
         y: rowY,
-        value:
-          `${percentage.toFixed(1)}%`,
+        value: `${percentage.toFixed(1)}%`,
         fill: theme.muted,
         size: 10,
         weight: 500,
         anchor: "end",
       });
 
+      // -----------------------------------------------------
+      // Background track
+      // -----------------------------------------------------
+
       svg += `
         <rect
           x="${left}"
           y="${barY}"
           width="${fullBarWidth}"
-          height="6"
-          rx="3"
+          height="7"
+          rx="3.5"
           fill="${theme.track}"
         />
+      `;
 
+      // -----------------------------------------------------
+      // Relative ranking bar
+      // -----------------------------------------------------
+
+      svg += `
         <rect
           x="${left}"
           y="${barY}"
           width="${Math.max(
             fillWidth,
-            percentage > 0 ? 2 : 0
+            bytes > 0 ? 3 : 0
           ).toFixed(1)}"
-          height="6"
-          rx="3"
+          height="7"
+          rx="3.5"
           fill="${theme.accent}"
         />
       `;
