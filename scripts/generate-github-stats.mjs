@@ -1,5 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
-import * as simpleIcons from "simple-icons";
+import { mkdir, readFile, writeFile, } from "node:fs/promises";
 
 const USERNAME = "Uzy777";
 const token = process.env.PROFILE_STATS_TOKEN;
@@ -309,9 +308,37 @@ const themes = {
 // ---------------------------------------------------------
 
 const recentDays = flattenCalendar(
-  recentCalendar,
-  recentFrom
-).slice(-30);
+const recentContributionMap = new Map(
+  flattenCalendar(recentCalendar, recentFrom).map(
+    (day) => [
+      day.date,
+      day.contributionCount,
+    ]
+  )
+);
+
+const recentDays = [];
+
+const today = new Date();
+today.setUTCHours(0, 0, 0, 0);
+
+for (let offset = 29; offset >= 0; offset--) {
+  const date = new Date(today);
+
+  date.setUTCDate(
+    today.getUTCDate() - offset
+  );
+
+  const dateString =
+    date.toISOString().slice(0, 10);
+
+  recentDays.push({
+    date: dateString,
+
+    contributionCount:
+      recentContributionMap.get(dateString) ?? 0,
+  });
+}
 
 const yearDays = flattenCalendar(
   yearCalendar,
@@ -366,50 +393,74 @@ const totalLanguageBytes = sortedLanguages.reduce(
 const languages = sortedLanguages.slice(0, 5);
 
 // ---------------------------------------------------------
-// Simple Icons
+// Devicon language icons
 // ---------------------------------------------------------
 
-const allSimpleIcons = Object.values(simpleIcons).filter(
-  (icon) =>
-    icon &&
-    typeof icon === "object" &&
-    typeof icon.title === "string" &&
-    typeof icon.slug === "string" &&
-    typeof icon.path === "string"
-);
-
-const languageAliases = {
-  HTML: "HTML5",
-  Shell: "GNU Bash",
-  Vue: "Vue.js",
-  Java: "OpenJDK",
+const deviconPaths = {
+  Python: "python/python-original.svg",
+  JavaScript: "javascript/javascript-original.svg",
+  TypeScript: "typescript/typescript-original.svg",
+  HTML: "html5/html5-original.svg",
+  CSS: "css3/css3-original.svg",
+  "C#": "csharp/csharp-original.svg",
+  C: "c/c-original.svg",
+  "C++": "cplusplus/cplusplus-original.svg",
+  Java: "java/java-original.svg",
+  PHP: "php/php-original.svg",
+  Go: "go/go-original-wordmark.svg",
+  Rust: "rust/rust-original.svg",
+  Shell: "bash/bash-original.svg",
 };
 
-function normalizeIconName(value) {
-  return value
-    .toLowerCase()
-    .replaceAll("+", "plus")
-    .replaceAll("#", "sharp")
-    .replaceAll(".", "dot")
-    .replace(/[^a-z0-9]/g, "");
-}
+async function loadDevicon(language) {
+  const relativePath = deviconPaths[language];
 
-function findLanguageIcon(language) {
-  const wanted =
-    languageAliases[language] ?? language;
+  if (!relativePath) {
+    return null;
+  }
 
-  const normalized = normalizeIconName(wanted);
-
-  return allSimpleIcons.find((icon) => {
-    return (
-      normalizeIconName(icon.title) === normalized ||
-      normalizeIconName(icon.slug) === normalized
+  try {
+    const fileUrl = new URL(
+      `../node_modules/devicon/icons/${relativePath}`,
+      import.meta.url
     );
-  });
+
+    const source = await readFile(fileUrl, "utf8");
+
+    const viewBox =
+      source.match(/viewBox=["']([^"']+)["']/i)?.[1] ??
+      "0 0 128 128";
+
+    const inner = source
+      .replace(/^[\s\S]*?<svg[^>]*>/i, "")
+      .replace(/<\/svg>\s*$/i, "");
+
+    return {
+      viewBox,
+      inner,
+    };
+  } catch {
+    return null;
+  }
 }
 
-function languageIcon(language, x, y, size, theme) {
-  const icon = findLanguageIcon(language);
+const languageIcons = new Map();
+
+for (const [language] of languages) {
+  languageIcons.set(
+    language,
+    await loadDevicon(language)
+  );
+}
+
+function renderLanguageIcon(
+  language,
+  x,
+  y,
+  size,
+  theme
+) {
+  const icon = languageIcons.get(language);
 
   if (!icon) {
     return `
@@ -420,27 +471,29 @@ function languageIcon(language, x, y, size, theme) {
         fill="${theme.track}"
       />
 
-      <text
-        x="${x + size / 2}"
-        y="${y + size * 0.72}"
-        fill="${theme.accent}"
-        font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
-        font-size="${size * 0.7}"
-        font-weight="600"
-        text-anchor="middle"
-      >${escapeXml(language[0] ?? "?")}</text>
+      ${text({
+        x: x + size / 2,
+        y: y + size * 0.72,
+        value: language[0] ?? "?",
+        fill: theme.accent,
+        size: size * 0.7,
+        weight: 600,
+        anchor: "middle",
+      })}
     `;
   }
 
-  const scale = size / 24;
-
   return `
-    <g transform="translate(${x} ${y}) scale(${scale})">
-      <path
-        d="${icon.path}"
-        fill="${theme.accent}"
-      />
-    </g>
+    <svg
+      x="${x}"
+      y="${y}"
+      width="${size}"
+      height="${size}"
+      viewBox="${icon.viewBox}"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      ${icon.inner}
+    </svg>
   `;
 }
 
@@ -783,30 +836,112 @@ function createStatsSvg(theme) {
 // ---------------------------------------------------------
 // Languages SVG
 // ---------------------------------------------------------
+function createActivitySvg(theme) {
+  const width = 800;
+  const height = 300;
 
-function createLanguagesSvg(theme) {
-  const width = 390;
-  const height = 240;
+  const chart = {
+    left: 64,
+    right: 770,
+    top: 92,
+    bottom: 230,
+  };
 
-  const iconX = 28;
-  const labelX = 52;
+  const chartWidth =
+    chart.right - chart.left;
 
-  const barX = 145;
-  const barWidth = 158;
+  const chartHeight =
+    chart.bottom - chart.top;
 
-  const percentX = 362;
+  const values = recentDays.map(
+    (day) => day.contributionCount
+  );
+
+  const maximumValue =
+    Math.max(...values, 0);
+
+  const axis =
+    niceAxisMaximum(maximumValue);
+
+  const points = recentDays.map(
+    (day, index) => {
+      const x =
+        chart.left +
+        (index /
+          Math.max(
+            recentDays.length - 1,
+            1
+          )) *
+          chartWidth;
+
+      const y =
+        chart.bottom -
+        (day.contributionCount /
+          axis.maximum) *
+          chartHeight;
+
+      return {
+        x,
+        y,
+        day,
+      };
+    }
+  );
+
+  const linePoints = points
+    .map(
+      ({ x, y }) =>
+        `${x.toFixed(1)},${y.toFixed(1)}`
+    )
+    .join(" ");
+
+  const areaPoints = [
+    `${chart.left},${chart.bottom}`,
+
+    ...points.map(
+      ({ x, y }) =>
+        `${x.toFixed(1)},${y.toFixed(1)}`
+    ),
+
+    `${chart.right},${chart.bottom}`,
+  ].join(" ");
 
   let svg = cardStart(
     width,
     height,
     theme,
-    "Top programming languages"
+    "GitHub contribution activity"
   );
 
+  svg += `
+    <defs>
+      <linearGradient
+        id="activity-fill"
+        x1="0"
+        y1="0"
+        x2="0"
+        y2="1"
+      >
+        <stop
+          offset="0%"
+          stop-color="${theme.accent}"
+          stop-opacity="0.24"
+        />
+
+        <stop
+          offset="100%"
+          stop-color="${theme.accent}"
+          stop-opacity="0.02"
+        />
+      </linearGradient>
+    </defs>
+  `;
+
+  // Header
   svg += text({
     x: 28,
     y: 38,
-    value: "Languages",
+    value: "Contribution activity",
     fill: theme.text,
     size: 18,
     weight: 600,
@@ -815,79 +950,181 @@ function createLanguagesSvg(theme) {
   svg += text({
     x: 28,
     y: 61,
-    value: "Public repositories · by code size",
+    value: "Last 30 days",
     fill: theme.muted,
     size: 12,
   });
 
-  languages.forEach(
-    ([language, bytes], index) => {
-      const percentage =
-        totalLanguageBytes === 0
-          ? 0
-          : (bytes / totalLanguageBytes) * 100;
+  svg += text({
+    x: 772,
+    y: 39,
+    value: `${compact(
+      recentTotal
+    )} contributions`,
+    fill: theme.accent,
+    size: 14,
+    weight: 600,
+    anchor: "end",
+  });
 
-      const rowY = 85 + index * 29;
+  // -------------------------------------------------------
+  // Y axis
+  // -------------------------------------------------------
 
-      const scaledBarWidth =
-        (percentage / 100) * barWidth;
+  for (
+    let value = 0;
+    value <= axis.maximum;
+    value += axis.step
+  ) {
+    const y =
+      chart.bottom -
+      (value / axis.maximum) *
+        chartHeight;
 
-      svg += languageIcon(
-        language,
-        iconX,
-        rowY - 4,
-        16,
-        theme
-      );
+    svg += `
+      <line
+        x1="${chart.left}"
+        y1="${y}"
+        x2="${chart.right}"
+        y2="${y}"
+        stroke="${theme.grid}"
+        stroke-width="1"
+      />
+    `;
 
-      svg += text({
-        x: labelX,
-        y: rowY + 9,
-        value: language,
-        fill: theme.text,
-        size: 11,
-        weight: 500,
-      });
+    svg += text({
+      x: chart.left - 12,
+      y: y + 4,
+      value,
+      fill: theme.muted,
+      size: 10,
+      anchor: "end",
+    });
+  }
 
-      // Bar track
+  svg += `
+    <line
+      x1="${chart.left}"
+      y1="${chart.top}"
+      x2="${chart.left}"
+      y2="${chart.bottom}"
+      stroke="${theme.border}"
+      stroke-width="1"
+    />
+  `;
+
+  // -------------------------------------------------------
+  // X axis — one position per day
+  // -------------------------------------------------------
+
+  svg += `
+    <line
+      x1="${chart.left}"
+      y1="${chart.bottom}"
+      x2="${chart.right}"
+      y2="${chart.bottom}"
+      stroke="${theme.border}"
+      stroke-width="1"
+    />
+  `;
+
+  points.forEach(
+    ({ x, day }, index) => {
+      // Tiny tick for every single day
       svg += `
-        <rect
-          x="${barX}"
-          y="${rowY}"
-          width="${barWidth}"
-          height="8"
-          rx="4"
-          fill="${theme.track}"
+        <line
+          x1="${x}"
+          y1="${chart.bottom}"
+          x2="${x}"
+          y2="${chart.bottom + 4}"
+          stroke="${theme.border}"
+          stroke-width="1"
         />
       `;
 
-      // Percentage bar
-      svg += `
-        <rect
-          x="${barX}"
-          y="${rowY}"
-          width="${Math.max(
-            scaledBarWidth,
-            percentage > 0 ? 2 : 0
-          ).toFixed(1)}"
-          height="8"
-          rx="4"
-          fill="${theme.accent}"
-        />
-      `;
+      // Label every third day so it stays readable.
+      const shouldLabel =
+        index === 0 ||
+        index === points.length - 1 ||
+        index % 3 === 0;
 
-      // Percentage now has its own dedicated column
+      if (!shouldLabel) {
+        return;
+      }
+
       svg += text({
-        x: percentX,
-        y: rowY + 8,
-        value: `${percentage.toFixed(1)}%`,
+        x,
+        y: 250,
+        value: formatDate(day.date),
         fill: theme.muted,
-        size: 10,
-        weight: 500,
-        anchor: "end",
+        size: 9,
+        anchor:
+          index === 0
+            ? "start"
+            : index === points.length - 1
+              ? "end"
+              : "middle",
       });
     }
   );
+
+  // -------------------------------------------------------
+  // Chart
+  // -------------------------------------------------------
+
+  svg += `
+    <polygon
+      points="${areaPoints}"
+      fill="url(#activity-fill)"
+    />
+
+    <polyline
+      points="${linePoints}"
+      fill="none"
+      stroke="${theme.accent}"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  `;
+
+  // Small dot for every actual day
+  points.forEach(({ x, y }) => {
+    svg += `
+      <circle
+        cx="${x}"
+        cy="${y}"
+        r="2"
+        fill="${theme.accent}"
+      />
+    `;
+  });
+
+  // Axis titles
+  svg += `
+    <text
+      x="25"
+      y="161"
+      transform="rotate(-90 25 161)"
+      fill="${theme.muted}"
+      font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+      font-size="10"
+      text-anchor="middle"
+    >
+      Contributions
+    </text>
+  `;
+
+  svg += text({
+    x:
+      chart.left +
+      chartWidth / 2,
+    y: 280,
+    value: "Day",
+    fill: theme.muted,
+    size: 10,
+    anchor: "middle",
+  });
 
   svg += cardEnd();
 
@@ -920,7 +1157,130 @@ for (const [themeName, theme] of Object.entries(themes)) {
 
     writeFile(
       `${directory}/languages.svg`,
-      createLanguagesSvg(theme),
+      function createLanguagesSvg(theme) {
+  const width = 390;
+  const height = 260;
+
+  const left = 28;
+  const right = 362;
+
+  const fullBarWidth =
+    right - left;
+
+  const rowStart = 89;
+  const rowSpacing = 34;
+
+  let svg = cardStart(
+    width,
+    height,
+    theme,
+    "Top programming languages"
+  );
+
+  svg += text({
+    x: left,
+    y: 38,
+    value: "Languages",
+    fill: theme.text,
+    size: 18,
+    weight: 600,
+  });
+
+  svg += text({
+    x: left,
+    y: 61,
+    value:
+      "Public repositories · language share",
+    fill: theme.muted,
+    size: 12,
+  });
+
+  languages.forEach(
+    ([language, bytes], index) => {
+      const percentage =
+        totalLanguageBytes === 0
+          ? 0
+          : (bytes /
+              totalLanguageBytes) *
+            100;
+
+      const rowY =
+        rowStart +
+        index * rowSpacing;
+
+      const iconSize = 18;
+
+      // Programming language icon
+      svg += renderLanguageIcon(
+        language,
+        left,
+        rowY - 13,
+        iconSize,
+        theme
+      );
+
+      // Language name
+      svg += text({
+        x: left + 28,
+        y: rowY,
+        value: language,
+        fill: theme.text,
+        size: 11,
+        weight: 500,
+      });
+
+      // Percentage — dedicated right column
+      svg += text({
+        x: right,
+        y: rowY,
+        value:
+          `${percentage.toFixed(1)}%`,
+        fill: theme.muted,
+        size: 10,
+        weight: 500,
+        anchor: "end",
+      });
+
+      const barY =
+        rowY + 10;
+
+      const fillWidth =
+        fullBarWidth *
+        (percentage / 100);
+
+      // Full-width track
+      svg += `
+        <rect
+          x="${left}"
+          y="${barY}"
+          width="${fullBarWidth}"
+          height="6"
+          rx="3"
+          fill="${theme.track}"
+        />
+      `;
+
+      // Percentage fill
+      svg += `
+        <rect
+          x="${left}"
+          y="${barY}"
+          width="${Math.max(
+            fillWidth,
+            percentage > 0 ? 2 : 0
+          ).toFixed(1)}"
+          height="6"
+          rx="3"
+          fill="${theme.accent}"
+        />
+      `;
+    }
+  );
+
+  svg += cardEnd();
+
+  return svg;
+}
       "utf8"
     ),
   ]);
