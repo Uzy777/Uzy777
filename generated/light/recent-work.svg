@@ -33,21 +33,21 @@
     y="61"
     fill="#656D76"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
-    font-size="12"
+    font-size="11"
     font-weight="400"
     text-anchor="start"
     opacity="1"
-  >Most recently updated public repositories</text>
-      <circle
-        cx="34"
-        cy="92"
-        r="4"
-        fill="#0969DA"
-      />
-    
+  >Recently updated repositories · private names hidden</text>
+          <circle
+            cx="34"
+            cy="92"
+            r="4"
+            fill="#0969DA"
+          />
+        
   <text
-    x="46"
-    y="95"
+    x="48"
+    y="98"
     fill="#1F2328"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
     font-size="13"
@@ -57,7 +57,7 @@
   >freeCodeCamp-Projects</text>
   <text
     x="362"
-    y="95"
+    y="98"
     fill="#656D76"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
     font-size="11"
@@ -65,25 +65,25 @@
     text-anchor="end"
     opacity="1"
   >1w ago</text>
-        <line
-          x1="28"
-          y1="111"
-          x2="362"
-          y2="111"
-          stroke="#EAEEF2"
-          stroke-width="1"
-        />
-      
-      <circle
-        cx="34"
-        cy="126"
-        r="4"
-        fill="#0969DA"
-      />
-    
+          <line
+            x1="28"
+            y1="113"
+            x2="362"
+            y2="113"
+            stroke="#EAEEF2"
+            stroke-width="1"
+          />
+        
+          <circle
+            cx="34"
+            cy="125"
+            r="4"
+            fill="#0969DA"
+          />
+        
   <text
-    x="46"
-    y="129"
+    x="48"
+    y="131"
     fill="#1F2328"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
     font-size="13"
@@ -93,7 +93,7 @@
   >Mini-Projects</text>
   <text
     x="362"
-    y="129"
+    y="131"
     fill="#656D76"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
     font-size="11"
@@ -101,25 +101,25 @@
     text-anchor="end"
     opacity="1"
   >3w ago</text>
-        <line
-          x1="28"
-          y1="145"
-          x2="362"
-          y2="145"
-          stroke="#EAEEF2"
-          stroke-width="1"
-        />
-      
-      <circle
-        cx="34"
-        cy="160"
-        r="4"
-        fill="#0969DA"
-      />
-    
+          <line
+            x1="28"
+            y1="146"
+            x2="362"
+            y2="146"
+            stroke="#EAEEF2"
+            stroke-width="1"
+          />
+        
+          <circle
+            cx="34"
+            cy="158"
+            r="4"
+            fill="#0969DA"
+          />
+        
   <text
-    x="46"
-    y="163"
+    x="48"
+    y="164"
     fill="#1F2328"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
     font-size="13"
@@ -129,7 +129,7 @@
   >FullStackOpen</text>
   <text
     x="362"
-    y="163"
+    y="164"
     fill="#656D76"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
     font-size="11"
@@ -137,24 +137,24 @@
     text-anchor="end"
     opacity="1"
   >5mo ago</text>
-        <line
-          x1="28"
-          y1="179"
-          x2="362"
-          y2="179"
-          stroke="#EAEEF2"
-          stroke-width="1"
-        />
-      
-      <circle
-        cx="34"
-        cy="194"
-        r="4"
-        fill="#0969DA"
-      />
-    
+          <line
+            x1="28"
+            y1="179"
+            x2="362"
+            y2="179"
+            stroke="#EAEEF2"
+            stroke-width="1"
+          />
+        
+          <circle
+            cx="34"
+            cy="191"
+            r="4"
+            fill="#0969DA"
+          />
+        
   <text
-    x="46"
+    x="48"
     y="197"
     fill="#1F2328"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
@@ -175,11 +175,11 @@
   >8mo ago</text>
   <text
     x="28"
-    y="215"
+    y="220"
     fill="#656D76"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
-    font-size="11"
+    font-size="10"
     font-weight="400"
     text-anchor="start"
     opacity="1"
-  >15 public repositories</text></svg>
+  >Private repository names are never written to this SVG</text></svg>
