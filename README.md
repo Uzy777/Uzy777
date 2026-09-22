@@ -128,15 +128,16 @@ A mobile prayer tracker focused on making daily Salah progress simple and meanin
   <picture>
     <source
       media="(prefers-color-scheme: dark)"
-      srcset="./profile-summary-card-output/github_dark/0-profile-details.svg"
+      srcset="./generated/dark/activity.svg"
     />
     <source
       media="(prefers-color-scheme: light)"
-      srcset="./profile-summary-card-output/github/0-profile-details.svg"
+      srcset="./generated/light/activity.svg"
     />
     <img
-      alt="GitHub activity"
-      src="./profile-summary-card-output/github/0-profile-details.svg"
+      width="100%"
+      alt="Uzy's GitHub contribution activity"
+      src="./generated/light/activity.svg"
     />
   </picture>
 </p>
@@ -145,32 +146,31 @@ A mobile prayer tracker focused on making daily Salah progress simple and meanin
   <picture>
     <source
       media="(prefers-color-scheme: dark)"
-      srcset="./profile-summary-card-output/github_dark/3-stats.svg"
+      srcset="./generated/dark/stats.svg"
     />
     <source
       media="(prefers-color-scheme: light)"
-      srcset="./profile-summary-card-output/github/3-stats.svg"
+      srcset="./generated/light/stats.svg"
     />
     <img
       width="49%"
-      alt="GitHub stats"
-      src="./profile-summary-card-output/github/3-stats.svg"
+      alt="Uzy's GitHub stats"
+      src="./generated/light/stats.svg"
     />
   </picture>
-
   <picture>
     <source
       media="(prefers-color-scheme: dark)"
-      srcset="./profile-summary-card-output/github_dark/1-repos-per-language.svg"
+      srcset="./generated/dark/languages.svg"
     />
     <source
       media="(prefers-color-scheme: light)"
-      srcset="./profile-summary-card-output/github/1-repos-per-language.svg"
+      srcset="./generated/light/languages.svg"
     />
     <img
       width="49%"
-      alt="Languages"
-      src="./profile-summary-card-output/github/1-repos-per-language.svg"
+      alt="Uzy's most-used languages"
+      src="./generated/light/languages.svg"
     />
   </picture>
 </p>
