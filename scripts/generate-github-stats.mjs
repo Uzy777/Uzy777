@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 
 const USERNAME = "Uzy777";
 const token = process.env.PROFILE_STATS_TOKEN;
@@ -67,16 +67,13 @@ const query = `
         ownerAffiliations: [OWNER]
         privacy: PUBLIC
         isFork: false
+        orderBy: { field: PUSHED_AT, direction: DESC }
       ) {
+        totalCount
         nodes {
-          languages(first: 20, orderBy: { field: SIZE, direction: DESC }) {
-            edges {
-              size
-              node {
-                name
-              }
-            }
-          }
+          name
+          url
+          pushedAt
         }
       }
     }
@@ -151,13 +148,6 @@ function flattenCalendar(calendar, fromDate) {
     .sort((a, b) => a.date.localeCompare(b.date));
 }
 
-function formatDate(dateString) {
-  return new Intl.DateTimeFormat("en-GB", {
-    day: "numeric",
-    month: "short",
-  }).format(new Date(`${dateString}T00:00:00Z`));
-}
-
 function longestStreak(days) {
   let longest = 0;
   let current = 0;
@@ -196,6 +186,30 @@ function niceAxisMaximum(maxValue) {
     step,
     maximum: Math.ceil(maxValue / step) * step,
   };
+}
+
+function daysAgoLabel(isoDate) {
+  const then = new Date(isoDate);
+  const diffMs = now.getTime() - then.getTime();
+  const days = Math.max(0, Math.floor(diffMs / 86400000));
+
+  if (days === 0) return "today";
+  if (days === 1) return "1d ago";
+  if (days < 7) return `${days}d ago`;
+
+  const weeks = Math.floor(days / 7);
+  if (weeks < 5) return `${weeks}w ago`;
+
+  const months = Math.floor(days / 30);
+  return `${months}mo ago`;
+}
+
+function truncate(value, maxLength) {
+  if (value.length <= maxLength) {
+    return value;
+  }
+
+  return `${value.slice(0, maxLength - 1)}…`;
 }
 
 function cardStart(width, height, theme, title) {
@@ -285,7 +299,7 @@ const recentContributionMap = new Map(
   ])
 );
 
-// Guarantee exactly the last 30 calendar days, including zero days.
+// Guarantee exactly the last 30 calendar days.
 const recentDays = [];
 
 const today = new Date();
@@ -293,7 +307,6 @@ today.setUTCHours(0, 0, 0, 0);
 
 for (let offset = 29; offset >= 0; offset--) {
   const date = new Date(today);
-
   date.setUTCDate(today.getUTCDate() - offset);
 
   const dateString = date.toISOString().slice(0, 10);
@@ -318,146 +331,13 @@ const activeDays = yearDays.filter(
 const longestActiveStreak = longestStreak(yearDays);
 
 // ---------------------------------------------------------
-// Public repository languages
+// Recent work data
 // ---------------------------------------------------------
 
-const ignoredLanguages = new Set([
-  "Jupyter Notebook",
-  "Roff",
-]);
-
-const languageTotals = new Map();
-
-for (const repo of user.repositories.nodes) {
-  for (const edge of repo.languages.edges) {
-    const language = edge.node.name;
-
-    if (ignoredLanguages.has(language)) {
-      continue;
-    }
-
-    languageTotals.set(
-      language,
-      (languageTotals.get(language) ?? 0) + edge.size
-    );
-  }
-}
-
-const sortedLanguages = [...languageTotals.entries()].sort(
-  (a, b) => b[1] - a[1]
-);
-
-const totalLanguageBytes = sortedLanguages.reduce(
-  (total, [, bytes]) => total + bytes,
-  0
-);
-
-const languages = sortedLanguages.slice(0, 5);
-
-// ---------------------------------------------------------
-// Devicon language icons
-// ---------------------------------------------------------
-
-const deviconPaths = {
-  Python: "python/python-original.svg",
-  JavaScript: "javascript/javascript-original.svg",
-  TypeScript: "typescript/typescript-original.svg",
-  HTML: "html5/html5-original.svg",
-  CSS: "css3/css3-original.svg",
-  "C#": "csharp/csharp-original.svg",
-  C: "c/c-original.svg",
-  "C++": "cplusplus/cplusplus-original.svg",
-  Java: "java/java-original.svg",
-  PHP: "php/php-original.svg",
-  Go: "go/go-original.svg",
-  Rust: "rust/rust-original.svg",
-  Shell: "bash/bash-original.svg",
-};
-
-async function loadDevicon(language) {
-  const relativePath = deviconPaths[language];
-
-  if (!relativePath) {
-    return null;
-  }
-
-  try {
-    const fileUrl = new URL(
-      `../node_modules/devicon/icons/${relativePath}`,
-      import.meta.url
-    );
-
-    const source = await readFile(fileUrl, "utf8");
-
-    const viewBox =
-      source.match(/viewBox=["']([^"']+)["']/i)?.[1] ??
-      "0 0 128 128";
-
-    const inner = source
-      .replace(/^[\s\S]*?<svg[^>]*>/i, "")
-      .replace(/<\/svg>\s*$/i, "");
-
-    return {
-      viewBox,
-      inner,
-    };
-  } catch {
-    return null;
-  }
-}
-
-const languageIcons = new Map();
-
-for (const [language] of languages) {
-  languageIcons.set(
-    language,
-    await loadDevicon(language)
-  );
-}
-
-function renderLanguageIcon(
-  language,
-  x,
-  y,
-  size,
-  theme
-) {
-  const icon = languageIcons.get(language);
-
-  if (!icon) {
-    return `
-      <circle
-        cx="${x + size / 2}"
-        cy="${y + size / 2}"
-        r="${size / 2}"
-        fill="${theme.track}"
-      />
-
-      ${text({
-        x: x + size / 2,
-        y: y + size * 0.72,
-        value: language[0] ?? "?",
-        fill: theme.accent,
-        size: size * 0.7,
-        weight: 600,
-        anchor: "middle",
-      })}
-    `;
-  }
-
-  return `
-    <svg
-      x="${x}"
-      y="${y}"
-      width="${size}"
-      height="${size}"
-      viewBox="${icon.viewBox}"
-      preserveAspectRatio="xMidYMid meet"
-    >
-      ${icon.inner}
-    </svg>
-  `;
-}
+const recentRepos = user.repositories.nodes
+  .filter((repo) => repo.name !== USERNAME)
+  .filter((repo) => repo.pushedAt)
+  .slice(0, 4);
 
 // ---------------------------------------------------------
 // Activity SVG
@@ -474,59 +354,37 @@ function createActivitySvg(theme) {
     bottom: 230,
   };
 
-  const chartWidth =
-    chart.right - chart.left;
+  const chartWidth = chart.right - chart.left;
+  const chartHeight = chart.bottom - chart.top;
 
-  const chartHeight =
-    chart.bottom - chart.top;
+  const values = recentDays.map((day) => day.contributionCount);
+  const maximumValue = Math.max(...values, 0);
+  const axis = niceAxisMaximum(maximumValue);
 
-  const values = recentDays.map(
-    (day) => day.contributionCount
-  );
+  const points = recentDays.map((day, index) => {
+    const x =
+      chart.left +
+      (index / Math.max(recentDays.length - 1, 1)) * chartWidth;
 
-  const maximumValue =
-    Math.max(...values, 0);
+    const y =
+      chart.bottom -
+      (day.contributionCount / axis.maximum) * chartHeight;
 
-  const axis =
-    niceAxisMaximum(maximumValue);
-
-  const points = recentDays.map(
-    (day, index) => {
-      const x =
-        chart.left +
-        (index /
-          Math.max(recentDays.length - 1, 1)) *
-          chartWidth;
-
-      const y =
-        chart.bottom -
-        (day.contributionCount / axis.maximum) *
-          chartHeight;
-
-      return {
-        x,
-        y,
-        day,
-        dayNumber: index + 1,
-      };
-    }
-  );
+    return {
+      x,
+      y,
+      day,
+      dayNumber: index + 1,
+    };
+  });
 
   const linePoints = points
-    .map(
-      ({ x, y }) =>
-        `${x.toFixed(1)},${y.toFixed(1)}`
-    )
+    .map(({ x, y }) => `${x.toFixed(1)},${y.toFixed(1)}`)
     .join(" ");
 
   const areaPoints = [
     `${chart.left},${chart.bottom}`,
-
-    ...points.map(
-      ({ x, y }) =>
-        `${x.toFixed(1)},${y.toFixed(1)}`
-    ),
-
+    ...points.map(({ x, y }) => `${x.toFixed(1)},${y.toFixed(1)}`),
     `${chart.right},${chart.bottom}`,
   ].join(" ");
 
@@ -551,7 +409,6 @@ function createActivitySvg(theme) {
           stop-color="${theme.accent}"
           stop-opacity="0.24"
         />
-
         <stop
           offset="100%"
           stop-color="${theme.accent}"
@@ -561,7 +418,6 @@ function createActivitySvg(theme) {
     </defs>
   `;
 
-  // Header
   svg += text({
     x: 28,
     y: 38,
@@ -589,19 +445,11 @@ function createActivitySvg(theme) {
     anchor: "end",
   });
 
-  // ---------------------------------------------------------
-  // Y axis + grid
-  // ---------------------------------------------------------
-
-  for (
-    let value = 0;
-    value <= axis.maximum;
-    value += axis.step
-  ) {
+  // Y axis and grid
+  for (let value = 0; value <= axis.maximum; value += axis.step) {
     const y =
       chart.bottom -
-      (value / axis.maximum) *
-        chartHeight;
+      (value / axis.maximum) * chartHeight;
 
     svg += `
       <line
@@ -624,7 +472,6 @@ function createActivitySvg(theme) {
     });
   }
 
-  // Y axis
   svg += `
     <line
       x1="${chart.left}"
@@ -634,10 +481,7 @@ function createActivitySvg(theme) {
       stroke="${theme.border}"
       stroke-width="1"
     />
-  `;
 
-  // X axis
-  svg += `
     <line
       x1="${chart.left}"
       y1="${chart.bottom}"
@@ -647,10 +491,6 @@ function createActivitySvg(theme) {
       stroke-width="1"
     />
   `;
-
-  // ---------------------------------------------------------
-  // Area + line
-  // ---------------------------------------------------------
 
   svg += `
     <polygon
@@ -668,47 +508,35 @@ function createActivitySvg(theme) {
     />
   `;
 
-  // ---------------------------------------------------------
-  // Individual days
-  // ---------------------------------------------------------
+  points.forEach(({ x, y, dayNumber }) => {
+    svg += `
+      <circle
+        cx="${x}"
+        cy="${y}"
+        r="2"
+        fill="${theme.accent}"
+      />
 
-  points.forEach(
-    ({ x, y, dayNumber }) => {
-      // Point
-      svg += `
-        <circle
-          cx="${x}"
-          cy="${y}"
-          r="2"
-          fill="${theme.accent}"
-        />
-      `;
+      <line
+        x1="${x}"
+        y1="${chart.bottom}"
+        x2="${x}"
+        y2="${chart.bottom + 4}"
+        stroke="${theme.border}"
+        stroke-width="1"
+      />
+    `;
 
-      // Tick
-      svg += `
-        <line
-          x1="${x}"
-          y1="${chart.bottom}"
-          x2="${x}"
-          y2="${chart.bottom + 4}"
-          stroke="${theme.border}"
-          stroke-width="1"
-        />
-      `;
+    svg += text({
+      x,
+      y: 249,
+      value: dayNumber,
+      fill: theme.muted,
+      size: 8,
+      anchor: "middle",
+    });
+  });
 
-      // 1 → 30 labels
-      svg += text({
-        x,
-        y: 249,
-        value: dayNumber,
-        fill: theme.muted,
-        size: 8,
-        anchor: "middle",
-      });
-    }
-  );
-
-  // Y-axis title
   svg += `
     <text
       x="24"
@@ -723,7 +551,6 @@ function createActivitySvg(theme) {
     </text>
   `;
 
-  // X-axis title
   svg += text({
     x: chart.left + chartWidth / 2,
     y: 280,
@@ -749,23 +576,16 @@ function createStatsSvg(theme) {
   const metrics = [
     {
       label: "Contributions",
-      value: compact(
-        yearCalendar.totalContributions
-      ),
+      value: compact(yearCalendar.totalContributions),
     },
-
     {
       label: "Commits",
-      value: compact(
-        user.year.totalCommitContributions
-      ),
+      value: compact(user.year.totalCommitContributions),
     },
-
     {
       label: "Active days",
       value: activeDays,
     },
-
     {
       label: "Longest streak",
       value: `${longestActiveStreak}d`,
@@ -791,43 +611,35 @@ function createStatsSvg(theme) {
   svg += text({
     x: 28,
     y: 61,
-    value:
-      "Public + private contributions · last 12 months",
+    value: "Public + private contributions · last 12 months",
     fill: theme.muted,
     size: 12,
   });
 
-  metrics.forEach(
-    (metric, index) => {
-      const column = index % 2;
-      const row = Math.floor(index / 2);
+  metrics.forEach((metric, index) => {
+    const column = index % 2;
+    const row = Math.floor(index / 2);
 
-      const x =
-        column === 0
-          ? 28
-          : 210;
+    const x = column === 0 ? 28 : 210;
+    const y = 111 + row * 72;
 
-      const y =
-        111 + row * 72;
+    svg += text({
+      x,
+      y,
+      value: metric.value,
+      fill: theme.accent,
+      size: 25,
+      weight: 600,
+    });
 
-      svg += text({
-        x,
-        y,
-        value: metric.value,
-        fill: theme.accent,
-        size: 25,
-        weight: 600,
-      });
-
-      svg += text({
-        x,
-        y: y + 23,
-        value: metric.label,
-        fill: theme.muted,
-        size: 12,
-      });
-    }
-  );
+    svg += text({
+      x,
+      y: y + 23,
+      value: metric.label,
+      fill: theme.muted,
+      size: 12,
+    });
+  });
 
   svg += cardEnd();
 
@@ -835,149 +647,91 @@ function createStatsSvg(theme) {
 }
 
 // ---------------------------------------------------------
-// Languages SVG
+// Recent work SVG
 // ---------------------------------------------------------
 
-function createLanguagesSvg(theme) {
+function createRecentWorkSvg(theme) {
   const width = 390;
-  const height = 280;
-
-  const left = 28;
-  const right = 362;
-
-  const fullBarWidth =
-    right - left;
-
-  const rowStart = 91;
-  const rowSpacing = 38;
-
-  // The largest language becomes the visual 100% width.
-  // Other bars are ranked proportionally against it.
-  const largestLanguageBytes =
-    languages[0]?.[1] ?? 1;
+  const height = 240;
 
   let svg = cardStart(
     width,
     height,
     theme,
-    "Top programming languages"
+    "Recent work"
   );
 
   svg += text({
-    x: left,
+    x: 28,
     y: 38,
-    value: "Languages",
+    value: "Recent work",
     fill: theme.text,
     size: 18,
     weight: 600,
   });
 
   svg += text({
-    x: left,
+    x: 28,
     y: 61,
-    value: "Public repositories · by code size",
+    value: "Most recently updated public repositories",
     fill: theme.muted,
     size: 12,
   });
 
-  languages.forEach(
-    ([language, bytes], index) => {
-      const percentage =
-        totalLanguageBytes === 0
-          ? 0
-          : (bytes / totalLanguageBytes) * 100;
+  const rowStart = 95;
+  const rowSpacing = 34;
 
-      // Bar ranking relative to largest language.
-      const relative =
-        largestLanguageBytes === 0
-          ? 0
-          : bytes / largestLanguageBytes;
+  recentRepos.forEach((repo, index) => {
+    const y = rowStart + index * rowSpacing;
 
-      const rowY =
-        rowStart +
-        index * rowSpacing;
-
-      const iconSize = 18;
-
-      const barY =
-        rowY + 11;
-
-      const fillWidth =
-        fullBarWidth * relative;
-
-      // -----------------------------------------------------
-      // Icon
-      // -----------------------------------------------------
-
-      svg += renderLanguageIcon(
-        language,
-        left,
-        rowY - 14,
-        iconSize,
-        theme
-      );
-
-      // -----------------------------------------------------
-      // Language
-      // -----------------------------------------------------
-
-      svg += text({
-        x: left + 28,
-        y: rowY,
-        value: language,
-        fill: theme.text,
-        size: 11,
-        weight: 600,
-      });
-
-      // -----------------------------------------------------
-      // Actual percentage
-      // -----------------------------------------------------
-
-      svg += text({
-        x: right,
-        y: rowY,
-        value: `${percentage.toFixed(1)}%`,
-        fill: theme.muted,
-        size: 10,
-        weight: 500,
-        anchor: "end",
-      });
-
-      // -----------------------------------------------------
-      // Background track
-      // -----------------------------------------------------
-
+    if (index > 0) {
       svg += `
-        <rect
-          x="${left}"
-          y="${barY}"
-          width="${fullBarWidth}"
-          height="7"
-          rx="3.5"
-          fill="${theme.track}"
-        />
-      `;
-
-      // -----------------------------------------------------
-      // Relative ranking bar
-      // -----------------------------------------------------
-
-      svg += `
-        <rect
-          x="${left}"
-          y="${barY}"
-          width="${Math.max(
-            fillWidth,
-            bytes > 0 ? 3 : 0
-          ).toFixed(1)}"
-          height="7"
-          rx="3.5"
-          fill="${theme.accent}"
+        <line
+          x1="28"
+          y1="${y - 18}"
+          x2="362"
+          y2="${y - 18}"
+          stroke="${theme.grid}"
+          stroke-width="1"
         />
       `;
     }
-  );
+
+    svg += `
+      <circle
+        cx="34"
+        cy="${y - 3}"
+        r="4"
+        fill="${theme.accent}"
+      />
+    `;
+
+    svg += text({
+      x: 46,
+      y,
+      value: truncate(repo.name, 26),
+      fill: theme.text,
+      size: 13,
+      weight: 600,
+    });
+
+    svg += text({
+      x: 362,
+      y,
+      value: daysAgoLabel(repo.pushedAt),
+      fill: theme.muted,
+      size: 11,
+      anchor: "end",
+    });
+  });
+
+  svg += text({
+    x: 28,
+    y: 215,
+    value: `${user.repositories.totalCount} public repositories`,
+    fill: theme.muted,
+    size: 11,
+  });
 
   svg += cardEnd();
 
@@ -988,19 +742,10 @@ function createLanguagesSvg(theme) {
 // Generate files
 // ---------------------------------------------------------
 
-for (
-  const [themeName, theme]
-  of Object.entries(themes)
-) {
-  const directory =
-    `generated/${themeName}`;
+for (const [themeName, theme] of Object.entries(themes)) {
+  const directory = `generated/${themeName}`;
 
-  await mkdir(
-    directory,
-    {
-      recursive: true,
-    }
-  );
+  await mkdir(directory, { recursive: true });
 
   await Promise.all([
     writeFile(
@@ -1016,13 +761,11 @@ for (
     ),
 
     writeFile(
-      `${directory}/languages.svg`,
-      createLanguagesSvg(theme),
+      `${directory}/recent-work.svg`,
+      createRecentWorkSvg(theme),
       "utf8"
     ),
   ]);
 }
 
-console.log(
-  "GitHub SVG stats generated successfully."
-);
+console.log("GitHub SVG stats generated successfully.");
