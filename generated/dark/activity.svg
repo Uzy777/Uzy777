@@ -2,8 +2,8 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="800"
-  height="285"
-  viewBox="0 0 800 285"
+  height="300"
+  viewBox="0 0 800 300"
   role="img"
 >
   <title>GitHub contribution activity</title>
@@ -12,34 +12,34 @@
     x="1"
     y="1"
     width="798"
-    height="283"
+    height="298"
     rx="16"
     fill="#0D1117"
     stroke="#30363D"
   />
 
-  <defs>
-    <linearGradient
-      id="activity-fill"
-      x1="0"
-      y1="0"
-      x2="0"
-      y2="1"
-    >
-      <stop
-        offset="0%"
-        stop-color="#539BF5"
-        stop-opacity="0.24"
-      />
+    <defs>
+      <linearGradient
+        id="activity-fill"
+        x1="0"
+        y1="0"
+        x2="0"
+        y2="1"
+      >
+        <stop
+          offset="0%"
+          stop-color="#539BF5"
+          stop-opacity="0.24"
+        />
 
-      <stop
-        offset="100%"
-        stop-color="#539BF5"
-        stop-opacity="0.02"
-      />
-    </linearGradient>
-  </defs>
-
+        <stop
+          offset="100%"
+          stop-color="#539BF5"
+          stop-opacity="0.02"
+        />
+      </linearGradient>
+    </defs>
+  
   <text
     x="28"
     y="38"
@@ -69,19 +69,19 @@
     font-weight="600"
     text-anchor="end"
     opacity="1"
-  >575 contributions</text>
+  >581 contributions</text>
       <line
-        x1="68"
-        y1="224"
-        x2="768"
-        y2="224"
+        x1="64"
+        y1="230"
+        x2="770"
+        y2="230"
         stroke="#21262D"
         stroke-width="1"
       />
     
   <text
-    x="56"
-    y="228"
+    x="52"
+    y="234"
     fill="#8B949E"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
     font-size="10"
@@ -90,17 +90,17 @@
     opacity="1"
   >0</text>
       <line
-        x1="68"
-        y1="191"
-        x2="768"
-        y2="191"
+        x1="64"
+        y1="195.5"
+        x2="770"
+        y2="195.5"
         stroke="#21262D"
         stroke-width="1"
       />
     
   <text
-    x="56"
-    y="195"
+    x="52"
+    y="199.5"
     fill="#8B949E"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
     font-size="10"
@@ -109,17 +109,17 @@
     opacity="1"
   >20</text>
       <line
-        x1="68"
-        y1="158"
-        x2="768"
-        y2="158"
+        x1="64"
+        y1="161"
+        x2="770"
+        y2="161"
         stroke="#21262D"
         stroke-width="1"
       />
     
   <text
-    x="56"
-    y="162"
+    x="52"
+    y="165"
     fill="#8B949E"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
     font-size="10"
@@ -128,17 +128,17 @@
     opacity="1"
   >40</text>
       <line
-        x1="68"
-        y1="125"
-        x2="768"
-        y2="125"
+        x1="64"
+        y1="126.5"
+        x2="770"
+        y2="126.5"
         stroke="#21262D"
         stroke-width="1"
       />
     
   <text
-    x="56"
-    y="129"
+    x="52"
+    y="130.5"
     fill="#8B949E"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
     font-size="10"
@@ -147,16 +147,16 @@
     opacity="1"
   >60</text>
       <line
-        x1="68"
+        x1="64"
         y1="92"
-        x2="768"
+        x2="770"
         y2="92"
         stroke="#21262D"
         stroke-width="1"
       />
     
   <text
-    x="56"
+    x="52"
     y="96"
     fill="#8B949E"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
@@ -166,21 +166,410 @@
     opacity="1"
   >80</text>
     <line
-      x1="68"
+      x1="64"
       y1="92"
-      x2="68"
-      y2="224"
+      x2="64"
+      y2="230"
+      stroke="#30363D"
+      stroke-width="1"
+    />
+
+    <line
+      x1="64"
+      y1="230"
+      x2="770"
+      y2="230"
       stroke="#30363D"
       stroke-width="1"
     />
   
+        <line
+          x1="64"
+          y1="230"
+          x2="64"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+  <text
+    x="64"
+    y="250"
+    fill="#8B949E"
+    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    font-size="9"
+    font-weight="400"
+    text-anchor="start"
+    opacity="1"
+  >24 Aug</text>
+        <line
+          x1="88.34482758620689"
+          y1="230"
+          x2="88.34482758620689"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+        <line
+          x1="112.6896551724138"
+          y1="230"
+          x2="112.6896551724138"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+        <line
+          x1="137.0344827586207"
+          y1="230"
+          x2="137.0344827586207"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+  <text
+    x="137.0344827586207"
+    y="250"
+    fill="#8B949E"
+    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    font-size="9"
+    font-weight="400"
+    text-anchor="middle"
+    opacity="1"
+  >27 Aug</text>
+        <line
+          x1="161.3793103448276"
+          y1="230"
+          x2="161.3793103448276"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+        <line
+          x1="185.72413793103448"
+          y1="230"
+          x2="185.72413793103448"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+        <line
+          x1="210.06896551724137"
+          y1="230"
+          x2="210.06896551724137"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+  <text
+    x="210.06896551724137"
+    y="250"
+    fill="#8B949E"
+    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    font-size="9"
+    font-weight="400"
+    text-anchor="middle"
+    opacity="1"
+  >30 Aug</text>
+        <line
+          x1="234.41379310344828"
+          y1="230"
+          x2="234.41379310344828"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+        <line
+          x1="258.7586206896552"
+          y1="230"
+          x2="258.7586206896552"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+        <line
+          x1="283.1034482758621"
+          y1="230"
+          x2="283.1034482758621"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+  <text
+    x="283.1034482758621"
+    y="250"
+    fill="#8B949E"
+    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    font-size="9"
+    font-weight="400"
+    text-anchor="middle"
+    opacity="1"
+  >2 Sept</text>
+        <line
+          x1="307.44827586206895"
+          y1="230"
+          x2="307.44827586206895"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+        <line
+          x1="331.7931034482759"
+          y1="230"
+          x2="331.7931034482759"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+        <line
+          x1="356.13793103448273"
+          y1="230"
+          x2="356.13793103448273"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+  <text
+    x="356.13793103448273"
+    y="250"
+    fill="#8B949E"
+    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    font-size="9"
+    font-weight="400"
+    text-anchor="middle"
+    opacity="1"
+  >5 Sept</text>
+        <line
+          x1="380.48275862068965"
+          y1="230"
+          x2="380.48275862068965"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+        <line
+          x1="404.82758620689657"
+          y1="230"
+          x2="404.82758620689657"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+        <line
+          x1="429.1724137931035"
+          y1="230"
+          x2="429.1724137931035"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+  <text
+    x="429.1724137931035"
+    y="250"
+    fill="#8B949E"
+    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    font-size="9"
+    font-weight="400"
+    text-anchor="middle"
+    opacity="1"
+  >8 Sept</text>
+        <line
+          x1="453.51724137931035"
+          y1="230"
+          x2="453.51724137931035"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+        <line
+          x1="477.8620689655172"
+          y1="230"
+          x2="477.8620689655172"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+        <line
+          x1="502.2068965517241"
+          y1="230"
+          x2="502.2068965517241"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+  <text
+    x="502.2068965517241"
+    y="250"
+    fill="#8B949E"
+    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    font-size="9"
+    font-weight="400"
+    text-anchor="middle"
+    opacity="1"
+  >11 Sept</text>
+        <line
+          x1="526.551724137931"
+          y1="230"
+          x2="526.551724137931"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+        <line
+          x1="550.8965517241379"
+          y1="230"
+          x2="550.8965517241379"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+        <line
+          x1="575.2413793103449"
+          y1="230"
+          x2="575.2413793103449"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+  <text
+    x="575.2413793103449"
+    y="250"
+    fill="#8B949E"
+    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    font-size="9"
+    font-weight="400"
+    text-anchor="middle"
+    opacity="1"
+  >14 Sept</text>
+        <line
+          x1="599.5862068965517"
+          y1="230"
+          x2="599.5862068965517"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+        <line
+          x1="623.9310344827586"
+          y1="230"
+          x2="623.9310344827586"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+        <line
+          x1="648.2758620689655"
+          y1="230"
+          x2="648.2758620689655"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+  <text
+    x="648.2758620689655"
+    y="250"
+    fill="#8B949E"
+    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    font-size="9"
+    font-weight="400"
+    text-anchor="middle"
+    opacity="1"
+  >17 Sept</text>
+        <line
+          x1="672.6206896551723"
+          y1="230"
+          x2="672.6206896551723"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+        <line
+          x1="696.9655172413793"
+          y1="230"
+          x2="696.9655172413793"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+        <line
+          x1="721.3103448275862"
+          y1="230"
+          x2="721.3103448275862"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+  <text
+    x="721.3103448275862"
+    y="250"
+    fill="#8B949E"
+    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    font-size="9"
+    font-weight="400"
+    text-anchor="middle"
+    opacity="1"
+  >20 Sept</text>
+        <line
+          x1="745.6551724137931"
+          y1="230"
+          x2="745.6551724137931"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+        <line
+          x1="770"
+          y1="230"
+          x2="770"
+          y2="234"
+          stroke="#30363D"
+          stroke-width="1"
+        />
+      
+  <text
+    x="770"
+    y="250"
+    fill="#8B949E"
+    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    font-size="9"
+    font-weight="400"
+    text-anchor="end"
+    opacity="1"
+  >22 Sept</text>
     <polygon
-      points="68,224 68.0,210.8 92.1,205.8 116.3,125.0 140.4,210.8 164.6,184.4 188.7,191.0 212.8,176.2 237.0,172.8 261.1,111.8 285.2,136.6 309.4,197.6 333.5,197.6 357.7,220.7 381.8,202.6 405.9,202.6 430.1,159.7 454.2,187.7 478.3,207.5 502.5,204.2 526.6,224.0 550.8,224.0 574.9,197.6 599.0,209.2 623.2,204.2 647.3,200.9 671.4,189.3 695.6,204.2 719.7,224.0 743.9,210.8 768.0,177.8 768,224"
+      points="64,230 64.0,216.2 88.3,211.0 112.7,126.5 137.0,216.2 161.4,188.6 185.7,195.5 210.1,180.0 234.4,176.5 258.8,112.7 283.1,138.6 307.4,202.4 331.8,202.4 356.1,226.6 380.5,207.6 404.8,207.6 429.2,162.7 453.5,192.1 477.9,212.8 502.2,209.3 526.6,230.0 550.9,230.0 575.2,202.4 599.6,214.5 623.9,209.3 648.3,205.8 672.6,193.8 697.0,209.3 721.3,230.0 745.7,216.2 770.0,171.3 770,230"
       fill="url(#activity-fill)"
     />
-  
+
     <polyline
-      points="68.0,210.8 92.1,205.8 116.3,125.0 140.4,210.8 164.6,184.4 188.7,191.0 212.8,176.2 237.0,172.8 261.1,111.8 285.2,136.6 309.4,197.6 333.5,197.6 357.7,220.7 381.8,202.6 405.9,202.6 430.1,159.7 454.2,187.7 478.3,207.5 502.5,204.2 526.6,224.0 550.8,224.0 574.9,197.6 599.0,209.2 623.2,204.2 647.3,200.9 671.4,189.3 695.6,204.2 719.7,224.0 743.9,210.8 768.0,177.8"
+      points="64.0,216.2 88.3,211.0 112.7,126.5 137.0,216.2 161.4,188.6 185.7,195.5 210.1,180.0 234.4,176.5 258.8,112.7 283.1,138.6 307.4,202.4 331.8,202.4 356.1,226.6 380.5,207.6 404.8,207.6 429.2,162.7 453.5,192.1 477.9,212.8 502.2,209.3 526.6,230.0 550.9,230.0 575.2,202.4 599.6,214.5 623.9,209.3 648.3,205.8 672.6,193.8 697.0,209.3 721.3,230.0 745.7,216.2 770.0,171.3"
       fill="none"
       stroke="#539BF5"
       stroke-width="2.5"
@@ -189,71 +578,234 @@
     />
   
       <circle
-        cx="768"
-        cy="177.8"
-        r="3.5"
-        fill="#0D1117"
-        stroke="#539BF5"
-        stroke-width="2"
+        cx="64"
+        cy="216.2"
+        r="2"
+        fill="#539BF5"
       />
     
+      <circle
+        cx="88.34482758620689"
+        cy="211.025"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="112.6896551724138"
+        cy="126.5"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="137.0344827586207"
+        cy="216.2"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="161.3793103448276"
+        cy="188.6"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="185.72413793103448"
+        cy="195.5"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="210.06896551724137"
+        cy="179.975"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="234.41379310344828"
+        cy="176.525"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="258.7586206896552"
+        cy="112.7"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="283.1034482758621"
+        cy="138.575"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="307.44827586206895"
+        cy="202.4"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="331.7931034482759"
+        cy="202.4"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="356.13793103448273"
+        cy="226.55"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="380.48275862068965"
+        cy="207.575"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="404.82758620689657"
+        cy="207.575"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="429.1724137931035"
+        cy="162.72500000000002"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="453.51724137931035"
+        cy="192.05"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="477.8620689655172"
+        cy="212.75"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="502.2068965517241"
+        cy="209.3"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="526.551724137931"
+        cy="230"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="550.8965517241379"
+        cy="230"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="575.2413793103449"
+        cy="202.4"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="599.5862068965517"
+        cy="214.475"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="623.9310344827586"
+        cy="209.3"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="648.2758620689655"
+        cy="205.85"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="672.6206896551723"
+        cy="193.775"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="696.9655172413793"
+        cy="209.3"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="721.3103448275862"
+        cy="230"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="745.6551724137931"
+        cy="216.2"
+        r="2"
+        fill="#539BF5"
+      />
+    
+      <circle
+        cx="770"
+        cy="171.35"
+        r="2"
+        fill="#539BF5"
+      />
+    
+    <text
+      x="25"
+      y="161"
+      transform="rotate(-90 25 161)"
+      fill="#8B949E"
+      font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+      font-size="10"
+      text-anchor="middle"
+    >
+      Contributions
+    </text>
+  
   <text
-    x="68"
-    y="251"
-    fill="#8B949E"
-    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
-    font-size="10"
-    font-weight="400"
-    text-anchor="start"
-    opacity="1"
-  >24 Aug</text>
-  <text
-    x="236.96551724137933"
-    y="251"
+    x="417"
+    y="280"
     fill="#8B949E"
     font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
     font-size="10"
     font-weight="400"
     text-anchor="middle"
     opacity="1"
-  >31 Aug</text>
-  <text
-    x="405.93103448275866"
-    y="251"
-    fill="#8B949E"
-    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
-    font-size="10"
-    font-weight="400"
-    text-anchor="middle"
-    opacity="1"
-  >7 Sept</text>
-  <text
-    x="574.8965517241379"
-    y="251"
-    fill="#8B949E"
-    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
-    font-size="10"
-    font-weight="400"
-    text-anchor="middle"
-    opacity="1"
-  >14 Sept</text>
-  <text
-    x="768"
-    y="251"
-    fill="#8B949E"
-    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
-    font-size="10"
-    font-weight="400"
-    text-anchor="end"
-    opacity="1"
-  >22 Sept</text>
-  <text transform="rotate(-90 31 162)"
-    x="31"
-    y="162"
-    fill="#8B949E"
-    font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
-    font-size="10"
-    font-weight="400"
-    text-anchor="middle"
-    opacity="1"
-  >Contributions</text></svg>
+  >Day</text></svg>
