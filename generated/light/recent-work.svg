@@ -124,7 +124,7 @@
     font-weight="400"
     text-anchor="end"
     opacity="1"
-  >today</text>
+  >1d ago</text>
           <line
             x1="28"
             y1="146"
@@ -172,7 +172,7 @@
     font-weight="400"
     text-anchor="end"
     opacity="1"
-  >today</text>
+  >1d ago</text>
           <line
             x1="28"
             y1="179"
@@ -220,4 +220,4 @@
     font-weight="400"
     text-anchor="end"
     opacity="1"
-  >4d ago</text></svg>
+  >5d ago</text></svg>
