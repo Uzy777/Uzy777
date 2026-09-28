@@ -106,6 +106,8 @@
 
 Gamified productivity and focus tracking — built to make actually starting things a little easier.
 
+🌐 [nomorelaterfocus.com](https://nomorelaterfocus.com)
+
 `React Native` · `Expo` · `TypeScript` · `Supabase`
 
 ### Uzy Analytics
