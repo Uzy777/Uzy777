@@ -68,7 +68,7 @@
 ### Cloud & DevOps
 
 <p>
-  <img src="https://skillicons.dev/icons?i=aws,cloudflare,docker,kubernetes,ansible&theme=dark" alt="Cloud and DevOps technologies" />
+  <img src="https://skillicons.dev/icons?i=aws,azure,cloudflare,docker,kubernetes,ansible&theme=dark" alt="Cloud and DevOps technologies" />
 </p>
 
 <!-- TODO: Argo CD isn't currently available on skillicons.dev -->
