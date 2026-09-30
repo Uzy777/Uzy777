@@ -172,7 +172,7 @@
     font-weight="400"
     text-anchor="end"
     opacity="1"
-  >2d ago</text>
+  >3d ago</text>
           <line
             x1="28"
             y1="179"
@@ -220,4 +220,4 @@
     font-weight="400"
     text-anchor="end"
     opacity="1"
-  >5d ago</text></svg>
+  >6d ago</text></svg>
