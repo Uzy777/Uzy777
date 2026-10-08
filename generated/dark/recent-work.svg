@@ -86,23 +86,11 @@
             stroke-width="1"
           />
         
-          <rect
-            x="29"
-            y="121"
-            width="10"
-            height="8"
-            rx="2"
-            fill="none"
-            stroke="#8B949E"
-            stroke-width="1.4"
-          />
-
-          <path
-            d="M31 121 V118 A3 3 0 0 1 37 118 V121"
-            fill="none"
-            stroke="#8B949E"
-            stroke-width="1.4"
-            stroke-linecap="round"
+          <circle
+            cx="34"
+            cy="125"
+            r="4"
+            fill="#539BF5"
           />
         
   <text
@@ -114,7 +102,7 @@
     font-weight="600"
     text-anchor="start"
     opacity="1"
-  >Private repository</text>
+  >freeCodeCamp-Projects</text>
   <text
     x="362"
     y="131"
@@ -172,7 +160,7 @@
     font-weight="400"
     text-anchor="end"
     opacity="1"
-  >1d ago</text>
+  >today</text>
           <line
             x1="28"
             y1="179"
@@ -220,4 +208,4 @@
     font-weight="400"
     text-anchor="end"
     opacity="1"
-  >1w ago</text></svg>
+  >1d ago</text></svg>
