@@ -38,23 +38,11 @@
     text-anchor="start"
     opacity="1"
   >Recently updated repositories · private names hidden</text>
-          <rect
-            x="29"
-            y="88"
-            width="10"
-            height="8"
-            rx="2"
-            fill="none"
-            stroke="#8B949E"
-            stroke-width="1.4"
-          />
-
-          <path
-            d="M31 88 V85 A3 3 0 0 1 37 85 V88"
-            fill="none"
-            stroke="#8B949E"
-            stroke-width="1.4"
-            stroke-linecap="round"
+          <circle
+            cx="34"
+            cy="92"
+            r="4"
+            fill="#539BF5"
           />
         
   <text
@@ -66,7 +54,7 @@
     font-weight="600"
     text-anchor="start"
     opacity="1"
-  >Private repository</text>
+  >Mini-Projects</text>
   <text
     x="362"
     y="98"
@@ -124,7 +112,7 @@
     font-weight="400"
     text-anchor="end"
     opacity="1"
-  >1d ago</text>
+  >today</text>
           <line
             x1="28"
             y1="146"
@@ -172,7 +160,7 @@
     font-weight="400"
     text-anchor="end"
     opacity="1"
-  >2d ago</text>
+  >today</text>
           <line
             x1="28"
             y1="179"
@@ -182,11 +170,23 @@
             stroke-width="1"
           />
         
-          <circle
-            cx="34"
-            cy="191"
-            r="4"
-            fill="#539BF5"
+          <rect
+            x="29"
+            y="187"
+            width="10"
+            height="8"
+            rx="2"
+            fill="none"
+            stroke="#8B949E"
+            stroke-width="1.4"
+          />
+
+          <path
+            d="M31 187 V184 A3 3 0 0 1 37 184 V187"
+            fill="none"
+            stroke="#8B949E"
+            stroke-width="1.4"
+            stroke-linecap="round"
           />
         
   <text
@@ -198,7 +198,7 @@
     font-weight="600"
     text-anchor="start"
     opacity="1"
-  >freeCodeCamp-Projects</text>
+  >Private repository</text>
   <text
     x="362"
     y="197"
@@ -208,4 +208,4 @@
     font-weight="400"
     text-anchor="end"
     opacity="1"
-  >1w ago</text></svg>
+  >2d ago</text></svg>
