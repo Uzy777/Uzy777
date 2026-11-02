@@ -38,7 +38,7 @@
 ### Systems
 
 <p>
-  <img src="https://skillicons.dev/icons?i=arch,ubuntu,debian,windows&theme=dark" alt="Linux distributions and systems" />
+  <img src="https://skillicons.dev/icons?i=arch,ubuntu,windows&theme=dark" alt="Linux distributions and systems" />
 </p>
 
 <!-- TODO: Hyprland isn't currently available on skillicons.dev -->
