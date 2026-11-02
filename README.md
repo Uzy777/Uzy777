@@ -99,30 +99,6 @@
 </details>
 
 ---
-
-## 🚀 Building
-
-### No More Later
-
-Gamified productivity and focus tracking — built to make actually starting things a little easier.
-
-🌐 [nomorelaterfocus.com](https://nomorelaterfocus.com)
-
-`React Native` · `Expo` · `TypeScript` · `Supabase`
-
-### Uzy Analytics
-
-A lightweight analytics platform with its own event collection API and dashboard.
-
-`React` · `TypeScript` · `Cloudflare`
-
-### My Salah
-
-A mobile prayer tracker focused on making daily Salah progress simple and meaningful.
-
-`React Native` · `Expo` · `TypeScript`
-
----
 ## 📊 GitHub
 
 <p align="center">
